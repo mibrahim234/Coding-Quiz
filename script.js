@@ -65,6 +65,7 @@ var timerEl = document.querySelector("#timer");
 var startPage = document.querySelector("#start-screen");
 var submitButton = document.querySelector("#submit");
 var submitHighscoresPg = document.querySelector("#submit-highscores-page");
+var inputInitials = document.querySelector("#inputInitials");
 var shuffledQuestions;
 var currentQuestionIndex = 0;
 
@@ -180,6 +181,8 @@ function countdown() {
       questionContainerElement.classList.add("hide");
       nextButton.classList.add("hide");
       submitHighscoresPg.classList.remove("hide");
+      // stop timer when game is over
+
 
   }
   // start button event listener 
@@ -201,7 +204,17 @@ nextButton.addEventListener('click', () => {
 }); 
 
 submitButton.addEventListener('click', function () {
+         var inputInitials = localStorage.getItem('initials');
+        inputInitials.textContent = initials;
+        if (inputInitials === '') {
+            displayMessage('error', 'Initials Cannot Be Blank');
+        } else {
+            displayMessage('success', 'Registered Sucessfully');
+            localStorage.setItem('initials', inputInitials);
+        }
+
         window.location.href = "highscores.html";
+    }
+    );
               //store scores, initital to local storage, once submit is hit the scores are stored 
 
-})
