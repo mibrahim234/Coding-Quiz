@@ -1,54 +1,62 @@
-const startButton = document.getElementById('start-btn');
-const nextButton = document.getElementById('next-btn');
-const questionContainerElement = document.getElementById('question-container');
-const questionElement = document.getElementById('question');
-const answerButtonElement = document.getElementById('answer-buttons');
+var startButton = document.getElementById('start-btn');
+var nextButton = document.getElementById('next-btn');
+var questionContainerElement = document.getElementById('question-container');
+var questionElement = document.getElementById('question');
+var answerButtonElement = document.getElementById('answer-buttons');
 var timerEl = document.querySelector("#timer");
 var startPage = document.querySelector("#start-screen");
 var shuffledQuestions;
 var currentQuestionIndex = 0;
 
+// game starts when start is clicked
 startButton.addEventListener('click', startGame);
 nextButton.addEventListener('click', () => {
     currentQuestionIndex++;
     setNextQuestion();
-});
+}); 
 
+// displays restart button to restart the game 
 // if (shuffledQuestions.length > currentQuestionIndex + 1) {
-//     nextButton.classList.remove('hide');
-// } else {
+//    nextButton.classList.remove('hide');
+//  } 
+// else {
 //     startButton.innerText = 'Restart';
 //     startButton.classList.remove('hide');
 // };
 
-
-
-
-
+// function starts game
 function startGame() {
  console.log('started');
  startButton.classList.add('hide');
- //gives random array
+ // shuffles questions so question is different each time
  shuffledQuestions = questions.sort(() => Math.random() - .5);
+ // set to 0 because we're starting from the first question in shuffle array
  currentQuestionIndex = 0;
  questionContainerElement.classList.add('hide');
  setNextQuestion();
 };
 
+// sets the new question
 function setNextQuestion() {
+    // resets everything to default state once we set a new question
     resetState();
 showQuestion(shuffledQuestions[currentQuestionIndex]);
 }
 
+// shows a question 
 function showQuestion(question) {
-    // remove the class off the container that is hiding it
+    // removes the class of hide 
     questionContainerElement.classList.remove("hide");
 
+    // populate different answers
+    // loop through answers to get a single answer for each
     questionElement.innerText = question.question;
     question.answers.forEach(answer => {
-        const button = document.createElement('button');
+        var button = document.createElement('button');
         button.innerText = answer.text;
         button.classList.add('btn');
+        // adds data attribute on button element
+        // only shows if button is correct
         if (answer.correct) {
             button.dataset.correct = answer.correct
         }
@@ -57,18 +65,21 @@ function showQuestion(question) {
     });
 };
 
+// after we click on an answer we want to hide the next button
+// while loop deletes all answers that came before and sets the new answers 
 function resetState() {
+    clearStatusClass(document.body);
     nextButton.classList.add('hide');
     while (answerButtonElement.firstChild) {
         answerButtonElement.removeChild(answerButtonElement.firstChild)
     };
 };
 
-
+// selects answer 
 function selectAnswer(e) {
- const selectedButton = e.target
- const correct = selectedButton.dataset.correct
- setStatusClass(document.body, correct)
+ var selectedButton = e.target
+ var correct = selectedButton.dataset.correct
+ setStatusClass(document.body, correct);
  Array.from(answerButtonElement.children).forEach(button => {
      setStatusClass(button, button.dataset.correct)
  })
@@ -91,6 +102,7 @@ function clearStatusClass(element) {
 
 };
 
+// questions in the quiz
 var questions = [
     
         {
