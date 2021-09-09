@@ -209,7 +209,8 @@ nextButton.addEventListener('click', () => {
 submitButton.addEventListener('click', function () {
     var initials = inputInitials.value;
     console.log(initials);
-        //  var inputInitials = localStorage.getItem('initials');
+    var myObject = {score: 10, initials: initials};
+    console.log(myObject);
         //alert can only take one parameter 
         if (initials === '') {
             alert('Initials Cannot Be Blank');
