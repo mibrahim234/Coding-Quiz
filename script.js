@@ -3,7 +3,7 @@ const nextButton = document.getElementById('next-btn');
 const questionContainerElement = document.getElementById('question-container');
 const questionElement = document.getElementById('question');
 const answerButtonElement = document.getElementById('answer-buttons');
-
+var timerEl = document.querySelector("#timer");
 var shuffledQuestions;
 var currentQuestionIndex = 0;
 
@@ -169,7 +169,7 @@ function countdown() {
   }
 
   // start button event listener 
-startBtn.addEventListener("click", function() {
+startButton.addEventListener("click", function() {
      })
 
   countdown();
