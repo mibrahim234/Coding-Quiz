@@ -21,8 +21,7 @@ nextButton.addEventListener('click', () => {
 //     startButton.classList.remove('hide');
 // };
 
-// makes startpage hide
-//startPage.setAttribute("style", "display: none;");
+
 
 
 
@@ -173,6 +172,8 @@ function countdown() {
 
   // start button event listener 
 startButton.addEventListener("click", function() {
+    // makes startpage hidden after click
+startPage.setAttribute("style", "display: none;");
      })
 
   countdown();
