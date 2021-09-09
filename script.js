@@ -94,27 +94,54 @@ var questions = [
         {
             question: "Commonly used data types DO NOT include?",
             answers: [
-                {text: '4', correct: true },
-                {text: '7', correct: false },
-                {text: '3', correct: false},
-                {text: '4', correct: false}
+                {text: 'Strings', correct: false },
+                {text: 'Boolean', correct: false },
+                {text: 'Alerts', correct: true},
+                {text: 'Numbers', correct: false}
 
             ]
         },
 
         {
-            question: "what color is sky?",
+            question: "The condition in an if/else statement is enclosed with ____.",
             answers: [
-                {text: 'blue', correct: true },
-                {text: 'red', correct: false }
+                {text: 'Quotes', correct: false },
+                {text: 'Square Brackets', correct: false },
+                {text: 'Parenthesis', correct: false },
+                {text: 'Curly Brackets', correct: true }
+
             ]
         },
 
         {
-            question: "is a hotdog a sandwich?",
+            question: "Arrays in JavaScript can be used to store ___.",
             answers: [
-                {text: 'yes', correct: true },
-                {text: 'no', correct: false }
+             {text: "Numbers and strings", correct: false },
+            {text: 'All of the above', correct: true },
+                {text: 'Boolean', correct: false },
+                {text: 'Other Arrays', correct: false }
+
             ]
         },
+        {
+            question: "String values must be enclosed within___ when being assigned to variables",
+            answers: [
+                {text: 'Quotes', correct: true },
+                {text: 'Curly Brackets', correct: false },
+                {text: 'Commas', correct: false },
+                {text: 'Parenthesis', correct: false }
+
+            ]
+        },
+        {
+            question: "A very useful tool used during development and debugging for printing content to the debugger is:", 
+            answers: [
+                {text: 'JavaScript', correct: false },
+                {text: 'Terminal/Bash', correct: false },
+                {text: 'Console.log', correct: true },
+                {text: 'For loops', correct: false }
+
+            ]
+        },
+
 ];
