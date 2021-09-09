@@ -68,6 +68,7 @@ var submitHighscoresPg = document.querySelector("#submit-highscores-page");
 var inputInitials = document.querySelector("#inputInitials");
 var shuffledQuestions;
 var currentQuestionIndex = 0;
+var timeInterval;
 
 
 
@@ -158,7 +159,7 @@ function clearStatusClass(element) {
 function countdown() {
     var timeLeft = 60;
 
-    var timeInterval = setInterval(function() {
+    timeInterval = setInterval(function() {
       if (timeLeft > 1) {
         timerEl.textContent = timeLeft + ' seconds remaining';
         timeLeft--;
@@ -178,6 +179,7 @@ function countdown() {
 
   function gameOver (){
       //show all done text, hide the questions container & nxt button
+      clearInterval(timeInterval);
       questionContainerElement.classList.add("hide");
       nextButton.classList.add("hide");
       submitHighscoresPg.classList.remove("hide");
@@ -205,16 +207,17 @@ nextButton.addEventListener('click', () => {
 
               //store scores, initital go to local storage, once submit is clicked the scores are stored 
 submitButton.addEventListener('click', function () {
-         var inputInitials = localStorage.getItem('initials');
-        inputInitials.textContent = initials;
-        if (inputInitials === '') {
-            displayMessage('error', 'Initials Cannot Be Blank');
+    var initials = inputInitials.value;
+    console.log(initials);
+        //  var inputInitials = localStorage.getItem('initials');
+        //alert can only take one parameter 
+        if (initials === '') {
+            alert('Initials Cannot Be Blank');
         } else {
-            displayMessage('success', 'Registered Sucessfully');
-            localStorage.setItem('initials', inputInitials);
+            alert('Registered Sucessfully');
+            localStorage.setItem('initials', initials);
         }
 
         window.location.href = "highscores.html";
-    }
-    );
+    });
 
