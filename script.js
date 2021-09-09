@@ -4,29 +4,32 @@ const questionContainerElement = document.getElementById('question-container');
 const questionElement = document.getElementById('question');
 const answerButtonElement = document.getElementById('answer-buttons');
 
-let shuffledQuestions, currentQuestionIndex;
+var shuffledQuestions;
+var currentQuestionIndex = 0;
 
 startButton.addEventListener('click', startGame);
 nextButton.addEventListener('click', () => {
     currentQuestionIndex++;
     setNextQuestion();
 });
-if (shuffledQuestions.length > currentQuestionIndex + 1) {
-    nextButton.classList.remove('hide');
-} else {
-    startButton.innerText = 'Restart';
-    startButton.classList.remove('hide');
-};
+// if (shuffledQuestions.length > currentQuestionIndex + 1) {
+//     nextButton.classList.remove('hide');
+// } else {
+//     startButton.innerText = 'Restart';
+//     startButton.classList.remove('hide');
+// };
 
 
 
 function startGame() {
  console.log('started');
  startButton.classList.add('hide');
+ //gives random array
+ shuffledQuestions = questions.sort(() => Math.random() - .5);
  currentQuestionIndex = 0;
  questionContainerElement.classList.add('hide');
  setNextQuestion();
-}
+};
 
 function setNextQuestion() {
     resetState();
@@ -45,14 +48,14 @@ question.answers.forEach(answer => {
     button.addEventListener('click', selectAnswer);
     answerButtonElement.appendChild(button);
 });
-}
+};
 
 function resetState() {
     nextButton.classList.add('hide');
     while (answerButtonElement.firstChild) {
         answerButtonElement.removeChild(answerButtonElement.firstChild)
     };
-}
+};
 
 
 function selectAnswer(e) {
@@ -63,7 +66,7 @@ function selectAnswer(e) {
      setStatusClass(button, button.dataset.correct)
  })
  nextButton.classList.remove('hide');
-}
+};
 
 function setStatusClass(element, correct) {
     clearStatusClass(element);
@@ -89,5 +92,21 @@ var questions = [
                 {text: '4', correct: true },
                 {text: '7', correct: false }
             ]
-        }
+        },
+
+        {
+            question: "what color is sky?",
+            answers: [
+                {text: 'blue', correct: true },
+                {text: 'red', correct: false }
+            ]
+        },
+
+        {
+            question: "is a hotdog a sandwich?",
+            answers: [
+                {text: 'yes', correct: true },
+                {text: 'no', correct: false }
+            ]
+        },
 ];
