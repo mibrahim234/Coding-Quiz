@@ -5,6 +5,7 @@ var questionElement = document.getElementById('question');
 var answerButtonElement = document.getElementById('answer-buttons');
 var timerEl = document.querySelector("#timer");
 var startPage = document.querySelector("#start-screen");
+var submitHighscoresPg = document.querySelector("#submit-highscores-page");
 var shuffledQuestions;
 var currentQuestionIndex = 0;
 
@@ -15,14 +16,6 @@ nextButton.addEventListener('click', () => {
     setNextQuestion();
 }); 
 
-// displays restart button to restart the game 
-// if (shuffledQuestions.length > currentQuestionIndex + 1) {
-//    nextButton.classList.remove('hide');
-//  } 
-// else {
-//     startButton.innerText = 'Restart';
-//     startButton.classList.remove('hide');
-// };
 
 // function starts game
 function startGame() {
@@ -63,6 +56,7 @@ function showQuestion(question) {
         }
         button.addEventListener('click', selectAnswer);
         answerButtonElement.appendChild(button);
+       
     });
 };
 
@@ -79,8 +73,10 @@ function resetState() {
 // selects answer 
 function selectAnswer(e) {
  var selectedButton = e.target
+ // whatever button we clicked on^
  var correct = selectedButton.dataset.correct
  setStatusClass(document.body, correct);
+ // whether answer should be set to correct or wrong^
  Array.from(answerButtonElement.children).forEach(button => {
      setStatusClass(button, button.dataset.correct)
  })
@@ -163,7 +159,7 @@ var questions = [
 
 // Timer that counts down from 100
 // when time hits 0 it alerts the console 
-// when question is wrong timer must go down by 5
+// when question is wrong timer must go down by 5 for every wrong answer
 function countdown() {
     var timeLeft = 60;
 

@@ -76,6 +76,26 @@ nav  {
     align-items: center;
 }
 
+.scores {
+    width: 600px;
+    max-width: 80%;
+    background-color: rgb(4, 94, 4);
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 10px 2px;
+    
+}
+
+.bond {
+    background-color: purple;
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+    outline: none;
+
+}
+
 h1 {
     text-align: center;
 }
@@ -84,9 +104,9 @@ h1 {
 }
 
 body.correct {
-    color: brown;
+    color: yellow;
 }
 
 body.wrong {
-    color: red;
+    color: orange;
 }
