@@ -12,12 +12,14 @@ nextButton.addEventListener('click', () => {
     currentQuestionIndex++;
     setNextQuestion();
 });
+
 // if (shuffledQuestions.length > currentQuestionIndex + 1) {
 //     nextButton.classList.remove('hide');
 // } else {
 //     startButton.innerText = 'Restart';
 //     startButton.classList.remove('hide');
 // };
+
 
 
 
@@ -37,17 +39,20 @@ showQuestion(shuffledQuestions[currentQuestionIndex]);
 }
 
 function showQuestion(question) {
-questionElement.innerText = question.question;
-question.answers.forEach(answer => {
-    const button = document.createElement('button');
-    button.innerText = answer.text;
-    button.classList.add('btn');
-    if (answer.correct) {
-        button.dataset.correct = answer.correct
-    }
-    button.addEventListener('click', selectAnswer);
-    answerButtonElement.appendChild(button);
-});
+    // remove the class off the container that is hiding it
+    questionContainerElement.classList.remove("hide");
+
+    questionElement.innerText = question.question;
+    question.answers.forEach(answer => {
+        const button = document.createElement('button');
+        button.innerText = answer.text;
+        button.classList.add('btn');
+        if (answer.correct) {
+            button.dataset.correct = answer.correct
+        }
+        button.addEventListener('click', selectAnswer);
+        answerButtonElement.appendChild(button);
+    });
 };
 
 function resetState() {
@@ -90,7 +95,10 @@ var questions = [
             question: "Commonly used data types DO NOT include?",
             answers: [
                 {text: '4', correct: true },
-                {text: '7', correct: false }
+                {text: '7', correct: false },
+                {text: '3', correct: false},
+                {text: '4', correct: false}
+
             ]
         },
 
