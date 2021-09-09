@@ -4,6 +4,7 @@ const questionContainerElement = document.getElementById('question-container');
 const questionElement = document.getElementById('question');
 const answerButtonElement = document.getElementById('answer-buttons');
 var timerEl = document.querySelector("#timer");
+var startPage = document.querySelector("#start-screen");
 var shuffledQuestions;
 var currentQuestionIndex = 0;
 
@@ -20,6 +21,8 @@ nextButton.addEventListener('click', () => {
 //     startButton.classList.remove('hide');
 // };
 
+// makes startpage hide
+//startPage.setAttribute("style", "display: none;");
 
 
 
