@@ -177,7 +177,7 @@ function countdown() {
   //need one more function to render the scores on html page, get scores and put it in an array, loop through array, say for each item in array create an element use document.createleement and give it a text content of scores and initials 
 
   function gameOver (){
-      //show all done game, hide the questions container 
+      //show all done text, hide the questions container & nxt button
       questionContainerElement.classList.add("hide");
       nextButton.classList.add("hide");
       submitHighscoresPg.classList.remove("hide");
@@ -203,6 +203,7 @@ nextButton.addEventListener('click', () => {
     }
 }); 
 
+              //store scores, initital go to local storage, once submit is clicked the scores are stored 
 submitButton.addEventListener('click', function () {
          var inputInitials = localStorage.getItem('initials');
         inputInitials.textContent = initials;
@@ -216,5 +217,4 @@ submitButton.addEventListener('click', function () {
         window.location.href = "highscores.html";
     }
     );
-              //store scores, initital to local storage, once submit is hit the scores are stored 
 
