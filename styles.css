@@ -82,3 +82,11 @@ h1 {
 .hide {
        display: none;
 }
+
+body.correct {
+    color: brown;
+}
+
+body.wrong {
+    color: red;
+}

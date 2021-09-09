@@ -34,6 +34,7 @@ function startGame() {
  currentQuestionIndex = 0;
  questionContainerElement.classList.add('hide');
  setNextQuestion();
+ countdown();
 };
 
 // sets the new question
@@ -45,7 +46,7 @@ showQuestion(shuffledQuestions[currentQuestionIndex]);
 
 // shows a question 
 function showQuestion(question) {
-    // removes the class of hide 
+    // removes the class of hide to show questions
     questionContainerElement.classList.remove("hide");
 
     // populate different answers
@@ -183,9 +184,9 @@ function countdown() {
   }
 
   // start button event listener 
+  // timer starts by itself fix that
 startButton.addEventListener("click", function() {
     // makes startpage hidden after click
 startPage.setAttribute("style", "display: none;");
      })
 
-  countdown();
