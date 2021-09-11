@@ -59,3 +59,9 @@ var questions = [
 ];
 
 // This will be where you store the main question and setting localStorage
+
+function displayHighscores () {
+    // either get scores from local storage or set to empty array
+    // sort highscores 
+    // loop through the array of highscores and create the html tags to display each 
+}

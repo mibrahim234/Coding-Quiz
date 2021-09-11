@@ -165,9 +165,14 @@ submitButton.addEventListener('click', function () {
             alert('Initials Cannot Be Blank');
         } else {
             alert('Registered Sucessfully');
-            localStorage.setItem('initials', initials);
-        }
+            localStorage.setItem('initials', JSON.stringify(initials));
+    }
 
+    // once submit is clicked the scores need to be saved in an array 
+    // 1. get the initals, like you already did
+    // 2. if initials exist, then get saved scores from localstorage, or if not any, set to empty array
+    // append child
+    // then push it into the array of highscores you previously retrieved from local storage, using highScoresArray.push(newScoreObject)
         window.location.href = "highscores.html";
     });
 
