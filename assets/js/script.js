@@ -117,6 +117,7 @@ function countdown() {
         timerEl.textContent = '';
         alert("Time's Up!");
         clearInterval(timeInterval);
+        if (timeLeft === 0) {gameOver()}
       }
     }, 1000);
   }
@@ -167,6 +168,7 @@ submitButton.addEventListener('click', function () {
         } else {
             alert('Registered Sucessfully');
             localStorage.setItem('initials', JSON.stringify(initials));
+            window.location.href = "highscores.html";
             console.log(initials);
     }
 
@@ -174,7 +176,6 @@ submitButton.addEventListener('click', function () {
     // 1. get the initals, like you already did
     // 2. if initials exist, then get saved scores from localstorage
     // then push it into the array of highscores you previously retrieved from local storage, using highScoresArray.push(newScoreObject)
-        window.location.href = "highscores.html";
     });
 
     // // testVar.textContent = local;

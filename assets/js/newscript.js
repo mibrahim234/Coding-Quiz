@@ -60,6 +60,9 @@ var questions = [
 
 // This will be where you store the main question and setting localStorage
 
+
+var clearHighscores = document.querySelector("#clear-highscores");
+
 function displayHighscores () {
     // either get scores from local storage or set to empty array
     // sort highscores 
