@@ -64,7 +64,23 @@ var questions = [
 var clearHighscores = document.querySelector("#clear-highscores");
 
 function displayHighscores () {
+    var displayScores = JSON.parse(window.localStorage.getItem('highScores')) || [];
+    console.log(displayScores.length);
     // either get scores from local storage or set to empty array
     // sort highscores 
     // loop through the array of highscores and create the html tags to display each 
-}
+    var storeScores; 
+    for ( i = 0; i < displayScores.length; i++) {
+        storeScores = document.createElement('li');
+        storeScores.textContent = displayScores[i].initials + displayScores[i].scores
+        var olTag = document.getElementById('test')
+        olTag.appendChild(storeScores) 
+        
+    }
+
+    }
+
+    
+
+
+displayHighscores()

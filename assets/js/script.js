@@ -14,6 +14,8 @@ var shuffledQuestions;
 var currentQuestionIndex = 0;
 var timeInterval;  
 var timeLeft = 60;
+var highScores = JSON.parse(window.localStorage.getItem('highScores')) || [];
+var holdScores = {scores: score,  initials : inputInitials.value};
 
 
 
@@ -84,7 +86,7 @@ function setStatusClass(element, correct) {
     clearStatusClass(element);
     if (correct) {
         element.classList.add('correct')
-        score+= 0;
+        score++;
         console.log(score);
     } else {
         element.classList.add('wrong')
@@ -126,8 +128,8 @@ function countdown() {
 
   function gameOver (){
       //show all done text, hide the questions container & nxt button
-      clearInterval(timeInterval);
       score+= (timeLeft)
+      clearInterval(timeInterval);
     console.log(score);
       questionContainerElement.classList.add("hide");
       nextButton.classList.add("hide");
@@ -159,18 +161,21 @@ submitButton.addEventListener('click', function () {
     var initials = inputInitials.value;
     console.log(initials);
     // shows one second below actual score 
-    var myObject = {score: timeLeft, initials: initials};
-    console.log(myObject);
+    // var myObject = {score: timeLeft, initials: initials};
+    // console.log(myObject);
         //alert can only take one parameter 
         if (initials === '') {
             alert('Initials Cannot Be Blank');
-            // has to show submit initials page again instead of going to highscores page 
         } else {
             alert('Registered Sucessfully');
-            localStorage.setItem('initials', JSON.stringify(initials));
+            var highScores = JSON.parse(window.localStorage.getItem('highScores')) || [];
+            var holdScores = {scores: score,  initials : inputInitials.value};
+            highScores.push(holdScores);
+            localStorage.setItem('highScores', JSON.stringify(highScores));
             window.location.href = "highscores.html";
-            console.log(initials);
+            console.log(highScores);
     }
+
 
     // once submit is clicked the scores need to be saved in an array 
     // 1. get the initals, like you already did
