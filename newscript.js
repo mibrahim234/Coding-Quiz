@@ -1,5 +1,6 @@
 //Where you do all the script for the highscore html page and getItem from localStorage
 // questions in the quiz
+// you want things related together to stay together 
 var questions = [
     
     {

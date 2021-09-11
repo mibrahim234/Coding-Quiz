@@ -9,9 +9,11 @@ var startPage = document.querySelector("#start-screen");
 var submitButton = document.querySelector("#submit");
 var submitHighscoresPg = document.querySelector("#submit-highscores-page");
 var inputInitials = document.querySelector("#inputInitials");
+var finalScore = document.querySelector("#finalscore");
 var shuffledQuestions;
 var currentQuestionIndex = 0;
-var timeInterval;
+var timeInterval;  
+var timeLeft = 60;
 
 
 
@@ -82,10 +84,11 @@ function setStatusClass(element, correct) {
     clearStatusClass(element);
     if (correct) {
         element.classList.add('correct')
-        score = score+1;
+        score+= 5;
         console.log(score);
     } else {
         element.classList.add('wrong')
+        timeLeft -= 5;
 
     }
 };
@@ -101,7 +104,6 @@ function clearStatusClass(element) {
 // when time hits 0 it alerts the console 
 // when question is wrong timer must go down by 5 for every wrong answer
 function countdown() {
-    var timeLeft = 60;
 
     timeInterval = setInterval(function() {
       if (timeLeft > 1) {
@@ -124,10 +126,13 @@ function countdown() {
   function gameOver (){
       //show all done text, hide the questions container & nxt button
       clearInterval(timeInterval);
+      score+= (timeLeft+1)
+    console.log(score);
       questionContainerElement.classList.add("hide");
       nextButton.classList.add("hide");
       submitHighscoresPg.classList.remove("hide");
       // stop timer when game is over
+      finalScore.innerText=score
 
 
   }
