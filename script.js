@@ -84,7 +84,7 @@ function setStatusClass(element, correct) {
     clearStatusClass(element);
     if (correct) {
         element.classList.add('correct')
-        score+= 5;
+        score+= 0;
         console.log(score);
     } else {
         element.classList.add('wrong')
@@ -126,7 +126,7 @@ function countdown() {
   function gameOver (){
       //show all done text, hide the questions container & nxt button
       clearInterval(timeInterval);
-      score+= (timeLeft+1)
+      score+= (timeLeft)
     console.log(score);
       questionContainerElement.classList.add("hide");
       nextButton.classList.add("hide");
@@ -157,7 +157,8 @@ nextButton.addEventListener('click', () => {
 submitButton.addEventListener('click', function () {
     var initials = inputInitials.value;
     console.log(initials);
-    var myObject = {score: 10, initials: initials};
+    // shows one second below actual score 
+    var myObject = {score: timeLeft, initials: initials};
     console.log(myObject);
         //alert can only take one parameter 
         if (initials === '') {
