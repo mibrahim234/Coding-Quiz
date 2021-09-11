@@ -25,8 +25,8 @@ At the end of the quiz or when the time runs out, the user will type their initi
 
 ## Website
 Link to the GIT repository: <br>
-https://github.com/mibrahim234/WebApi-JavaScriptQuiz
+https://github.com/mibrahim234/Coding-Quiz
 
-Link to the Live Page: https://mibrahim234.github.io/WebApi-JavaScriptQuiz/
+Link to the Live Page:https://mibrahim234.github.io/Coding-Quiz/
 ## Contribution
 Made with ❤️ by Mohammad Ibrahim
