@@ -7,10 +7,10 @@ This website is designed to quiz a user on their basic knowledge of JavaScript.
 ## How It Works 
 The user goes through the quiz by clicking the buttons and submitting their answers. <br>
 
-As soon as the user clicks start, there is a timer that is counting down from 100. If a user gets a question incorrectly, they lose 5 seconds from the timer.  <br>
+As soon as the user clicks start, there is a timer that is counting down from 60. If a user gets a question incorrectly, they lose 5 seconds from the timer.  The users final score is the time remaining on the clock after all of the questions are answered. <br>
 
 
-On the other hand, if the user answers correctly they get points added to their score. The user is informed which answer is correct or incorrect. <br>
+ The user is informed which answer is correct or incorrect through colors. Yellow shows that the answer is correct. Orange shows that the answer is wrong. <br>
 
 At the end of the quiz or when the time runs out, the user will type their initials and submit their score. 
  These scores will be stored into local storage. 
