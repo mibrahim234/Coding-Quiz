@@ -60,8 +60,9 @@ var questions = [
 
 // This will be where you store the main question and setting localStorage
 
-var testScores = document.getElementById('test');
+
 var clearHighscores = document.querySelector("#clear-highscores");
+var testScores = document.getElementById('test');
 
 function displayHighscores () {
     var displayScores = JSON.parse(window.localStorage.getItem('highScores')) || [];
@@ -85,6 +86,6 @@ displayHighscores()
 // 2. Clear out your local storage for 'highScores'
 // 3. Clear out your html content for id test
 clearHighscores.addEventListener('click', function () {
-    testScores.classList.add('hide');
+ testScores.classList.add('hide');
 
 });

@@ -6,6 +6,7 @@ var questionElement = document.getElementById('question');
 var answerButtonElement = document.getElementById('answer-buttons');
 var timerEl = document.querySelector("#timer");
 var startPage = document.querySelector("#start-screen");
+var clearHighscores = document.querySelector("#clear-highscores");
 var submitButton = document.querySelector("#submit");
 var testScores = document.getElementById('test');
 var submitHighscoresPg = document.querySelector("#submit-highscores-page");
