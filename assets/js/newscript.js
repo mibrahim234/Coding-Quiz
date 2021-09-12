@@ -60,7 +60,7 @@ var questions = [
 
 // This will be where you store the main question and setting localStorage
 
-
+var testScores = document.getElementById('test');
 var clearHighscores = document.querySelector("#clear-highscores");
 
 function displayHighscores () {
@@ -77,10 +77,14 @@ function displayHighscores () {
         olTag.appendChild(storeScores) 
         
     }
-
-    }
-
-    
-
-
+}
 displayHighscores()
+
+
+// Set and event listener to clearHighscores
+// 2. Clear out your local storage for 'highScores'
+// 3. Clear out your html content for id test
+clearHighscores.addEventListener('click', function () {
+    testScores.classList.add('hide');
+
+});

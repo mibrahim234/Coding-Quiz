@@ -7,6 +7,7 @@ var answerButtonElement = document.getElementById('answer-buttons');
 var timerEl = document.querySelector("#timer");
 var startPage = document.querySelector("#start-screen");
 var submitButton = document.querySelector("#submit");
+var testScores = document.getElementById('test');
 var submitHighscoresPg = document.querySelector("#submit-highscores-page");
 var inputInitials = document.querySelector("#inputInitials");
 var finalScore = document.querySelector("#finalscore");
@@ -35,7 +36,7 @@ function startGame() {
 
 // sets the new question
 function setNextQuestion() {
-    // resets everything to default state once we set a new question
+    // resets everything to default state once we set new question
     resetState();
 showQuestion(shuffledQuestions[currentQuestionIndex]);
 }
